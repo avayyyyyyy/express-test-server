@@ -9,8 +9,33 @@ app.use(express.json());
 
 app.use(express.json());
 
-let todos: { id: number; title: string; completed: boolean }[] = [];
+let todos: { id: number; title: string; completed: boolean }[] = [{
+  id: 1,
+  title: "Learn React",
+  completed: false
+  },
+  {
+    id: 2,
+    title: "Learn TypeScript",
+    completed: false
+  },
+  {
+    id: 3,
+    title: "Learn Next.js",
+    completed: false
+  },
+  {
+    id: 4,
+    title: "Learn Node.js",
+    completed: false
+  }
+];
 let nextId = 1;
+
+app.get("/", (_req: any, res: any) => {
+  res.json({ message: "Hello World" } );
+});
+
 
 app.get("/api/todos", (_req: any, res: any) => {
   res.json(todos);
